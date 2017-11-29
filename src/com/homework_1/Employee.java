@@ -4,7 +4,6 @@ public class Employee {
     private String name;
     private int rate;
     private int hours;
-    private int salary;
     private static double persent;
     public static int totalHours=0;
 
@@ -41,17 +40,17 @@ public class Employee {
         this.persent = persent;
     }
     public  double getSalary() {
-       return (double) rate * hours;
+       return rate * hours;
     }
     public  double getPersentFromSalary() {
-        return (double) (rate*hours)* persent;
+        return  getSalary() * persent;
     }
     public  double getPureSalary() {
-        return (double) (rate*hours)- ((rate*hours)* persent);
+        return getSalary() - getPersentFromSalary();
     }
     @Override
     public String toString() {
-        return "Це " + name + ", рейтингу - " + rate + " відпрацював(ла) " + hours + " годин, і заробляє в розмірі " +
+        return "Це " + name + ", він отримує - " + rate + " грн. за годину, та відпрацював(ла) " + hours + " годин, і заробляє в розмірі " +
                 getSalary() + " гривень, з окладом " + getPersentFromSalary()+ ", а 'на руки' отримує " +
                 getPureSalary() + " гривень.";
     }
